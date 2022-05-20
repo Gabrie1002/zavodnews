@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}
+  Новость {{ new|truncatechars:30 }}
+{% endblock %}
+{% load thumbnail %}
+{% block content %}
+  <div class="row">
+    <aside class="col-12 col-md-3">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          Тег: {{ new.tag.title }}
+          <a href="{% url 'news:news_tag' new.tag.slug %}"> все новости по тегу </a>
+        </li>
+      </ul>
+    </aside>
+    <article class="col-12 col-md-9">
+      {% thumbnail new.image "100x100" crop="center" as im %} 
+        <img class="images" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+      {% endthumbnail %}
+      <p>
+        {{ new.text }}
+      </p>
+    </article>
+  </div>
+{% endblock %}

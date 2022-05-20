@@ -1,0 +1,20 @@
+{% extends 'base.html' %} 
+{% block title %} 
+  Последние новости на сайте
+{% endblock %}
+{% load thumbnail %}
+{% block content %} 
+  <h1> 
+    Последние новости на сайте
+  </h1> 
+  {% for new in page_obj %} 
+    <article> 
+      {% include 'news/include/new.html' %}
+      <a href="{% url 'news:news_tag' new.tag.slug %}">Все новости по тегу: {{ new.tag }}</a>
+    </article> 
+    {% if not forloop.last %} 
+      <hr> 
+    {% endif %}
+  {% endfor %}
+  {% include 'news/include/paginator.html' %}
+{% endblock %}

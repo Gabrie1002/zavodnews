@@ -1,0 +1,10 @@
+{% load thumbnail %}
+{% thumbnail new.image "100x100" crop="center" as im %} 
+  <img class="images" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+{% endthumbnail %}
+<p>
+  {{ new.text }}
+</p>
+<article>
+  <a href="{% url 'news:news_detail' new.pk %}">Посмотреть новость</a>
+</article>
