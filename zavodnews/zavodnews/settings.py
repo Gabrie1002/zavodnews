@@ -57,8 +57,8 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATES_DIR],        
-        'APP_DIRS': True, 
+        'DIRS': [TEMPLATES_DIR],
+        'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -68,7 +68,7 @@ TEMPLATES = [
             ]
         },
     }
-] 
+]
 
 WSGI_APPLICATION = 'zavodnews.wsgi.application'
 

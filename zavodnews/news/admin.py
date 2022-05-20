@@ -1,4 +1,5 @@
 from django.contrib import admin
+
 from .models import News, Tag
 
 
@@ -24,7 +25,7 @@ class TagAdmin(admin.ModelAdmin):
         'title',
         'slug',
     )
-    empty_value_display = '-пусто-' 
+    empty_value_display = '-пусто-'
 
 
 admin.site.register(News, NewsAdmin)

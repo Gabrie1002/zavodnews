@@ -1,5 +1,6 @@
-from django.shortcuts import get_object_or_404, render
 from django.core.paginator import Paginator
+from django.shortcuts import get_object_or_404, render
+
 from .models import News, Tag
 
 
@@ -16,7 +17,7 @@ def index(request):
     page_obj = page_list(post_list, request)
     template = 'news/index.html'
     context = {
-        'page_obj':page_obj,
+        'page_obj': page_obj,
     }
     return render(request, template, context)
 
@@ -32,7 +33,6 @@ def news_tag(request, slug):
         'tag': tag,
     }
     return render(request, template, context)
-
 
 
 def news_detail(request, pk):
